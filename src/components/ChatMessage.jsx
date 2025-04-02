@@ -11,6 +11,9 @@ const BUBBLE_COLORS = [
   '#F1F8E9', // Lime
   '#FFF8E1', // Light Amber
 ];
+function removeDomain(email) {
+  return email.replace(/@[^@]+$/, '');
+}
 
 export default function ChatMessage({ message, isCurrentUser }) {
   const timestamp = message.timestamp?.toDate();
@@ -30,7 +33,7 @@ export default function ChatMessage({ message, isCurrentUser }) {
     <div className={`message ${isCurrentUser ? 'sent' : 'received'}`}>
       <div className="message-content" style={messageStyle}>
         <div className="message-header">
-          <span className="email">{message.email}</span>
+          <span className="email">{removeDomain(message.email)}</span>
         </div>
         <p className="message-text">{message.text}</p>
         <span className="message-timestamp">{formattedTime}</span>

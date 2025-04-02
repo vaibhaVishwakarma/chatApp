@@ -43,11 +43,13 @@ export default function ChatRoom() {
         <div ref={dummy}></div>
       </div>
 
-      <form onSubmit={sendMessage}>
+      <form onSubmit={sendMessage}
+      style={{padding: '1% 9px', marginTop:"0.5rem", background:'#f5f5f5' , borderRadius:'5px'}}>
         <input
           value={formValue}
           onChange={(e) => setFormValue(e.target.value)}
           placeholder="Type a message"
+          
         />
         <button type="submit">Send</button>
       </form>
